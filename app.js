@@ -2,7 +2,21 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
+// require('update-electron-app')({
+//   repo: 'miguelcma/ubbu-test'
+// })
+
+const { autoUpdater } = require("electron-updater")
+const { checkForUpdates } = require('./updater')
+
 let window = null
+
+// function autoUpdate() {
+//     const log = require("electron-log")
+//     log.transports.file.level = "debug"
+//     autoUpdater.logger = log
+//     autoUpdater.checkForUpdatesAndNotify()
+// }
 
 // Wait until the app is ready
 app.once('ready', () => {
@@ -19,6 +33,9 @@ app.once('ready', () => {
     // Don't show the window until it's ready, this prevents any white flickering
     show: false
   })
+
+  //autoUpdate()
+  checkForUpdates()
 
   window.loadURL(url.format({
     pathname: path.join(__dirname, 'index.html'),

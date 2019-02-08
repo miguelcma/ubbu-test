@@ -12,6 +12,9 @@ doughnut chart of the CPU system, user, and idle activity time.
 - `cd activity-monitor`
 - `npm install` to install the application's dependencies
 - `npm start` to start the application
+- `yarn dist`
+- define new version at package.json
+- `GH_TOKEN=... yarn publish2`
 
 ## Going further
 
@@ -23,3 +26,4 @@ Here are some ideas on how it can be improved using other Electron APIs.
 - Support saving chart as PNG
 - Support copying chart image to clipboard
 - Add second chart of free vs. used memory
+

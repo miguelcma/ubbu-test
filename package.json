@@ -1,14 +1,41 @@
 {
   "name": "activity-monitor",
-  "version": "1.0.0",
+  "version": "1.0.8",
   "description": "CPU activity monitor",
-  "repository": "electron/simple-samples",
+  "repository": "miguelcma/ubbu-test",
+  "author": "miguel",
   "main": "app.js",
-  "scripts": {
-    "start": "electron app.js"
-  },
   "license": "ISC",
   "devDependencies": {
-    "electron": "^3.0.2"
+    "electron": "^3.0.2",
+    "electron-builder": "^20.38.5"
+  },
+  "dependencies": {
+    "electron-log": "^3.0.1",
+    "electron-updater": "^4.0.6"
+  },
+  "build": {
+    "appId": "com.electron.activity-monitor",
+    "mac": {
+      "category": "utilities"
+    },
+    "generateUpdatesFilesForAllChannels": true,
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "channel": "latest"
+      }
+    ]
+  },
+  "scripts": {
+    "start": "electron app.js",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder --win",
+    "publish-to-gh": "electron-builder --win -p always"
   }
 }
